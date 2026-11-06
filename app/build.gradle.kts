@@ -1,10 +1,7 @@
-import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
 import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.google.services)
-    alias(libs.plugins.firebase.crashlytics)
 }
 
 val keystorePropertiesFile = rootProject.file("keys/keystore.properties")
@@ -14,22 +11,24 @@ val keystoreProperties = Properties().apply {
 
 android {
     namespace = "cl.figonzal.gravitydefied"
-    compileSdk = 37
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "cl.figonzal.gravitydefied"
         minSdk = 23
-        targetSdk = 37
-        versionCode = 9
-        versionName = "1.0.8"
+        targetSdk = 35
+        versionCode = 10
+        versionName = "1.0.9"
     }
 
     signingConfigs {
-        create("release") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = file(keystoreProperties["storeFile"] as String)
-            storePassword = keystoreProperties["storePassword"] as String
+        if (keystorePropertiesFile.exists()) {
+            create("release") {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            }
         }
     }
 
@@ -53,18 +52,16 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = false
-            signingConfig = signingConfigs.getByName("release")
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            } else {
+                signingConfig = signingConfigs.getByName("debug")
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
             resValue("string", "app_name", "Gravity Defied Classic")
-            configure<CrashlyticsExtension> {
-                // Only deploy builds upload the mapping (fastlane passes
-                // -PuploadMapping); local release builds would otherwise keep
-                // overwriting the mapping of the same versionCode in Firebase.
-                mappingFileUploadEnabled = project.hasProperty("uploadMapping")
-            }
         }
     }
 
@@ -82,14 +79,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.crashlytics)
-    implementation(libs.firebase.analytics)
-
-    // Override outdated transitive AndroidX deps pulled in by firebase-analytics →
-    // play-services-measurement (Play Console flagged fragment 1.1.0 / activity 1.0.0).
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.activity)
-    // Direct dep for WindowCompat / WindowInsetsControllerCompat used in GDActivity.applyImmersiveMode().
     implementation(libs.androidx.core)
 }

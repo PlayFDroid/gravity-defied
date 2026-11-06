@@ -1,34 +1,40 @@
-# Gravity Defied – Android port
+# Gravity Defied – Android port (PlayFDroid Edition)
 **Gravity Defied** is an iconic trial racing mobile game. It was originally developed by Codebrew Software in 2004 for J2ME platform.
 
-Codebrew has launched an Android version of the game in 2012, though it was totally remade. We are the ones who like classic version of Gravity Defied more, so we ported it to Android almost unchanged!
+Codebrew launched an Android version of the game in 2012, though it was totally remade. Classic Gravity Defied remains an undisputed legend, ported to Android faithfully to preserve original physics, controls, and gameplay mechanics.
 
-This port includes all features of the original Gravity Defied. In addition, we have collected more than 1000 levels mods made by fans since 2007. You can install any mod and switch between mods directly from the game menu.
+This port includes all features of the original Gravity Defied, all original tracks, plus online access to over 1000 level packs made by fans since 2007.
 
-> This repository is a maintained fork by [Felipe González Alarcón](https://github.com/figonzal1), updated for modern Android.
+> Maintained for [PlayFDroid](https://playfdroid.github.io) — updated for modern 64-bit Android (14/15/16/17+), 16 KB ELF page-size alignment, zero proprietary trackers, and F-Droid repository integration. Based on the port by Gregory Klushnikov & Eugene Zinoviev and maintenance by Felipe González Alarcón.
 
-***We are not associated with Codebrew Software in any fashion. All rights to the original Gravity Defied, it's name, logotype, brand and all that stuff belongs to Codebrew Software.***
+***We are not associated with Codebrew Software in any fashion. All rights to the original Gravity Defied, its name, logotype, and assets belong to Codebrew Software.***
+
+# Features
+* **Original 2004 Physics**: Fixed-point trial racing physics faithfully reproduced from the J2ME bytecode.
+* **Modern Android Support**: Fully compatible with Android 14, 15, 16, and 17+, edge-to-edge layout, and modern display cutouts.
+* **100% Free & Open Source**: Zero proprietary tracking or analytics SDKs (Firebase/Crashlytics completely removed).
+* **1000+ Level Mods**: Download and switch fan-made track packs directly inside the game.
+* **On-screen Keypad**: Classic 1-9 numeric controls with multi-touch and haptic feedback.
 
 # Download
-You can download the latest version from:
+You can download the game from:
 
-* [Google Play](https://play.google.com/store/apps/details?id=cl.figonzal.gravitydefied)
-* Official site of the original port: [gdtr.net](http://gdtr.net)
+* [PlayFDroid F-Droid Repository](https://playfdroid.github.io)
+* [GitHub Releases](https://github.com/PlayFDroid/gravity-defied/releases)
 
 # Authors
-### Fork maintainer
+### PlayFDroid Edition
+* Modernized for contemporary 64-bit Android, F-Droid repository integration, tracker-free build.
 
-* **[Felipe González Alarcón](https://github.com/figonzal1)** - Android modernization and maintenance
+### Fork maintainer
+* **[Felipe González Alarcón](https://github.com/figonzal1)** - Modern Android maintenance
 
 ### Port authors
+* **[Gregory Klushnikov](https://vk.com/grishka)** - Idea and initial J2ME-to-Android port
+* **[Evgeny Zinoviev](https://vk.com/ez)** - Porting, levels manager, API, graphics
 
-* **[Gregory Klushnikov](https://vk.com/grishka)** - idea and the original J2ME to Android port.
-* **[Evgeny Zinoviev](https://vk.com/ez)** - porting/levels manager/levels API/graphics/everything else development, graphics.
+### Codebrew Original Authors
+* **Tors Björn Henrik Johansson** - System / game logic / interface, levels design
+* **Set Elis Norman** - Graphics / physics / mathematics, levels design
+* **Per David Jacobsson** - Physics programming, game graphics, levels design
 
-### Codebrew GDTR Authors
-
-* **Tors Björn Henrik Johansson** - system/game logic/interface, testing, levels design
-* **Set Elis Norman** - graphics/physics/mathematics/system/tools programming, levels design
-* **Per David Jacobsson** - physics programming, game graphics, levels design
-
-For more information, please visit official site of Codebrew Software: [codebrew.se](http://codebrew.se)

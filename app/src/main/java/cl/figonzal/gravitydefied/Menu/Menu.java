@@ -463,6 +463,7 @@ public class Menu
 
 				aboutScreen.setIsTextScreen(true);
 				aboutScreen.addItem(new TextMenuElement(fromHtml(
+						getString(R.string.about_credit_playfdroid) + "<br/><br/>" +
 						getString(R.string.about_credit_figonzal) + "<br/><br/>" +
 						getString(R.string.about_credit_happysanta) + "<br/><br/>" +
 						getString(R.string.about_credit_codebrew)

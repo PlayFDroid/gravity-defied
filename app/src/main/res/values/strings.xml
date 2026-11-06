@@ -119,6 +119,11 @@
 	]]></string>
 
 	<!-- About screen credits — one string per entry, chronological order newest first -->
+	<string name="about_credit_playfdroid"><![CDATA[
+		<b>PlayFDroid Edition</b><br/>
+		Open-source build with modern 64-bit Android &amp; F-Droid support<br/>
+		playfdroid.github.io · 2026
+	]]></string>
 	<string name="about_credit_figonzal"><![CDATA[
 		<b>Gravity Defied Classic</b><br/>
 		Modernized for Android 16+ by Felipe Gonzalez<br/>
